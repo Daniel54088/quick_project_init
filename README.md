@@ -20,9 +20,31 @@ Then just happy coding with the `hot-reload`(means when you save the files, it w
 
 
 ### Online Time
-
-
+Type:
+```bash
+ yarn build
+```
+Webpack will minimize and pack the whole project in `dist/` folder and put it on the server.
 
 ## Feature
 ### SPA
-Add new routes in index.js to
+Add new routes in `index.js` and create new component for it.
+```html
+import App from "./App"
+import Home from './component/Home'
+import Login from './component/Login'
+//IMPORT NEW COMPONENT HERE
+
+ReactDOM.render(
+    <Router history={browserHistory} >
+
+        <Route path="/" component={App} >
+            <IndexRoute component={Login}/>
+            <Route path="home" component={Home} />
+            //CREATE NEW ROUTE HERE 
+        </Route>
+
+    </Router>
+    , document.querySelector('#app')
+)
+```
